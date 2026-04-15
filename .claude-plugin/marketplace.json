@@ -2,8 +2,8 @@
   "name": "prp-marketplace",
   "description": "PRP (Product Requirement Prompt) workflow automation tools and methodology",
   "owner": {
-    "name": "Wirasm",
-    "email": "contact@wirasm.com"
+    "name": "Rodrigo França",
+    "email": "rodrigo_rjsf@hotmail.com"
   },
   "plugins": [
     {

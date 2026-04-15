@@ -41,16 +41,16 @@ fi
 
 # Check if max iterations reached
 if [[ $MAX_ITERATIONS -gt 0 ]] && [[ $ITERATION -ge $MAX_ITERATIONS ]]; then
-  echo "🛑 PRP Ralph: Max iterations ($MAX_ITERATIONS) reached."
-  echo "   Check .claude/prp-ralph.state.md for progress log."
+  echo "🛑 PRP Ralph: Max iterations ($MAX_ITERATIONS) reached." >&2
+  echo "   Check .claude/prp-ralph.state.md for progress log." >&2
   rm "$STATE_FILE"
   exit 0
 fi
 
 # Get transcript path from hook input
-TRANSCRIPT_PATH=$(echo "$HOOK_INPUT" | jq -r '.transcript_path')
+TRANSCRIPT_PATH=$(echo "$HOOK_INPUT" | jq -r '.transcript_path' 2>/dev/null)
 
-if [[ ! -f "$TRANSCRIPT_PATH" ]]; then
+if [[ -z "$TRANSCRIPT_PATH" || "$TRANSCRIPT_PATH" == "null" || ! -f "$TRANSCRIPT_PATH" ]]; then
   echo "⚠️  PRP Ralph: Transcript not found" >&2
   rm "$STATE_FILE"
   exit 0
@@ -67,7 +67,7 @@ if grep -q '"role":"assistant"' "$TRANSCRIPT_PATH"; then
 
   # Check for completion promise
   if echo "$LAST_OUTPUT" | grep -q '<promise>COMPLETE</promise>'; then
-    echo "✅ PRP Ralph: All validations passed! Loop complete."
+    echo "✅ PRP Ralph: All validations passed! Loop complete." >&2
     rm "$STATE_FILE"
     exit 0
   fi
