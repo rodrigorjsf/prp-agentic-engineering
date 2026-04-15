@@ -1,7 +1,7 @@
 ---
 paths:
-  - "plugins/prp-core/hooks/**"
-  - ".claude/hooks/**"
+  - "plugins/prp-core/hooks/*.sh"
+  - ".claude/hooks/*.sh"
 ---
 <!-- Migrated from codebase analysis — hook protocol rules extracted to on-demand rule -->
 

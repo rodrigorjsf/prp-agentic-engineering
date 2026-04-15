@@ -1,201 +1,113 @@
-# PRP Commands for Dummies
+# PRP Plugin for Humans
 
-## What is PRP?
+This repo is not just a folder of prompts anymore. It is a **Claude Code plugin marketplace repo** that publishes the `prp-core` plugin.
 
-**PRP = PRD + codebase intelligence + validation loop**
+## What you actually get
 
-You give the AI a detailed plan with context and validation commands. The AI implements, tests, and self-corrects until everything passes.
+- **Plugin package**: `prp-core`
+- **15 plugin skills** for planning, implementation, debugging, review, and Git workflow
+- **10 plugin agents** for analysis and review
+- **2 automatic Stop hooks** for Ralph and Research Team workflows
+- **Repo-only extras** in the root `.claude/` mirror:
+  - `prp-core-runner`
+  - `update-review-instructions`
+  - `gpui-researcher`
 
----
+## Fastest install
 
-## The Commands (New Simplified Flow)
-
-### Core Workflow
-
-| Command          | What it does                                    |
-| ---------------- | ----------------------------------------------- |
-| `/prp-prd`       | Create a PRD with implementation phases         |
-| `/prp-plan`      | Create an implementation plan                   |
-| `/prp-implement` | Execute a plan with validation loops            |
-| `/prp-ralph`     | Autonomous loop until all validations pass      |
-
-### Issue & Debug Workflow
-
-| Command                  | What it does                          |
-| ------------------------ | ------------------------------------- |
-| `/prp-issue-investigate` | Analyze a GitHub issue, create a plan |
-| `/prp-issue-fix`         | Implement the fix                     |
-| `/prp-debug`             | Deep root cause analysis (5 Whys)     |
-
-### Git & Review
-
-| Command       | What it does                              |
-| ------------- | ----------------------------------------- |
-| `/prp-commit` | Smart commit with natural language targeting |
-| `/prp-pr`     | Create a pull request                     |
-| `/prp-review` | Review a pull request                     |
-
----
-
-## The Basic Flow
-
-### For Big Features
-
-```
-/prp-prd "user authentication system"
-    ↓
-Creates PRD with phases (stored in .claude/PRPs/prds/)
-    ↓
-/prp-plan .claude/PRPs/prds/user-auth.prd.md
-    ↓
-Creates implementation plan for next phase
-    ↓
-/prp-implement .claude/PRPs/plans/user-auth-phase-1.plan.md
-    ↓
-Executes plan, runs validations, fixes failures
-    ↓
-Repeat /prp-plan for next phase
+```bash
+/plugin marketplace add rodrigorjsf/prp-agentic-engineering
+/plugin install prp-core@prp-marketplace
 ```
 
-### For Medium Features
+That installs the actual plugin.
 
-Skip the PRD. Go straight to a plan:
+## Install with the Claude Code plugin API
 
-```
-/prp-plan "add pagination to the API"
-    ↓
-/prp-implement .claude/PRPs/plans/add-pagination.plan.md
-```
+If you want Claude Code to enable the plugin from config, add this to `.claude/settings.json` or `~/.claude/settings.json`:
 
-### For Bug Fixes (GitHub Issues)
-
-```
-/prp-issue-investigate 123
-    ↓
-/prp-issue-fix 123
-```
-
-### For Debugging (Errors, Stack Traces)
-
-```
-/prp-debug "TypeError: Cannot read property 'x' of undefined"
-    ↓
-Creates RCA report with root cause and fix specification
+```json
+{
+  "extraKnownMarketplaces": {
+    "prp-marketplace": {
+      "source": "rodrigorjsf/prp-agentic-engineering"
+    }
+  },
+  "enabledPlugins": [
+    "prp-core@prp-marketplace"
+  ]
+}
 ```
 
----
+## Install from a local checkout
 
-## The Ralph Loop (Autonomous Mode)
+```bash
+git clone https://github.com/rodrigorjsf/prp-agentic-engineering.git
+cd prp-agentic-engineering
 
-Instead of `/prp-implement`, use `/prp-ralph` for fully autonomous execution:
-
-```
-/prp-ralph .claude/PRPs/plans/my-feature.plan.md --max-iterations 20
-```
-
-This runs in a loop:
-1. Implements the plan
-2. Runs all validations
-3. If something fails → fixes it → re-validates
-4. Keeps going until everything passes
-5. Exits when done
-
-Go make coffee. Come back to working code (or a progress log).
-
-**Cancel with:** `/prp-ralph-cancel`
-
----
-
-## The Git Flow
-
-After implementation:
-
-```
-/prp-commit                    # Stage and commit with smart message
-/prp-pr                        # Create pull request
-/prp-review 123                # Review someone else's PR
+/plugin marketplace add /absolute/path/to/prp-agentic-engineering
+/plugin install prp-core@prp-marketplace
 ```
 
----
+Cloning the repo alone is **not** enough. Claude still needs the marketplace entry or the plugin settings config.
 
-## Where Stuff Gets Saved
+## How to use it
 
+Use the skill names in Claude Code.
+
+### Big feature
+
+```text
+Run the prp-prd skill for "user authentication"
+Run the prp-plan skill with .claude/PRPs/prds/user-auth.prd.md
+Run the prp-implement skill with .claude/PRPs/plans/user-auth-phase-1.plan.md
 ```
+
+### Medium feature
+
+```text
+Run the prp-plan skill for "add pagination to the API"
+Run the prp-implement skill with .claude/PRPs/plans/add-pagination.plan.md
+```
+
+### Fully autonomous mode
+
+```text
+Run the prp-ralph skill with .claude/PRPs/plans/my-feature.plan.md --max-iterations 20
+```
+
+### Bug fix
+
+```text
+Run the prp-issue-investigate skill for issue 456
+Run the prp-issue-fix skill for issue 456
+```
+
+### Review and ship
+
+```text
+Run the prp-commit skill
+Run the prp-pr skill
+Run the prp-review skill for PR 123
+```
+
+## Where files get saved
+
+```text
 .claude/PRPs/
-├── prds/              # PRD documents
-├── plans/             # Implementation plans
-│   └── completed/     # Archived plans
-├── reports/           # Implementation reports
-├── issues/            # Issue investigations
-└── reviews/           # PR reviews
+├── prds/
+├── plans/
+│   └── completed/
+├── reports/
+├── issues/
+│   └── completed/
+└── reviews/
 ```
 
----
+## The only thing to remember
 
-## Quick Examples
-
-### "I have a rough idea"
-
-```bash
-/prp-prd "I want users to be able to like posts"
-```
-
-This asks you clarifying questions, does research, and creates a structured PRD with phases.
-
-### "I know what I want to build"
-
-```bash
-/prp-plan "add a like button to posts with real-time count updates"
-```
-
-Creates a detailed implementation plan with tasks and validation commands.
-
-### "Just build it"
-
-```bash
-/prp-ralph .claude/PRPs/plans/like-button.plan.md --max-iterations 15
-```
-
-Autonomous execution until done.
-
-### "There's a bug"
-
-```bash
-/prp-issue-investigate 456
-/prp-issue-fix 456
-```
-
-### "I'm done, let's commit"
-
-```bash
-/prp-commit typescript files except tests
-/prp-pr
-```
-
----
-
-## Tips
-
-1. **Context is king** - The more context in your plan, the better the output
-2. **Validation matters** - Plans with test commands work better than plans without
-3. **Use Ralph for big stuff** - Let it iterate instead of babysitting
-4. **Max iterations** - Always set `--max-iterations` on Ralph loops
-5. **Start specific** - "Add OAuth2 with Google" beats "add authentication"
-
----
-
-## The Old Commands
-
-Previous commands like `/prp-base-create`, `/prp-spec-create`, `/api-contract-define`, etc. are preserved in `old-prp-commands/` for reference. The new streamlined flow replaces all of them.
-
----
-
-## That's It
-
-1. Big feature? → `/prp-prd` → `/prp-plan` → `/prp-ralph`
-2. Medium feature? → `/prp-plan` → `/prp-implement`
-3. GitHub issue? → `/prp-issue-investigate` → `/prp-issue-fix`
-4. Weird bug? → `/prp-debug "error message"`
-5. Done? → `/prp-commit` → `/prp-pr`
-
-Happy building.
+1. Need a spec first? Use `prp-prd`.
+2. Ready to plan? Use `prp-plan`.
+3. Ready to build? Use `prp-implement` or `prp-ralph`.
+4. Fixing a bug? Use `prp-issue-investigate` and `prp-issue-fix`.
+5. Done? Use `prp-commit`, then `prp-pr`.

@@ -1,7 +1,7 @@
 ---
 paths:
-  - "plugins/prp-core/skills/**/*.md"
-  - ".claude/skills/**/*.md"
+  - "plugins/prp-core/skills/*/SKILL.md"
+  - ".claude/skills/*/SKILL.md"
 ---
 <!-- Migrated from CLAUDE.md — skill-specific conventions extracted to on-demand rule -->
 

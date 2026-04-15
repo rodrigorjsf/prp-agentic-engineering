@@ -19,9 +19,9 @@ Skills are the primary interface. Invoke by name (e.g., "run the prp-plan skill"
 
 ## Context
 
-- `plugins/prp-core/` — PRP Core plugin (v3.0.0): 15 skills, 10 agents, hooks
-- `.claude/agents/` — 11 agents (10 from plugin + `gpui-researcher` project-specific)
-- `.claude/skills/prp-core-runner/` — orchestration skill (project-only, not in plugin)
+- `plugins/prp-core/` is the packaged plugin distribution.
+- Root `.claude/` mirrors plugin artifacts for local development and also contains project-only extras such as `prp-core-runner`, `update-review-instructions`, and `gpui-researcher`.
+- Use `plugins/prp-core/CLAUDE.md` when changing the shipped plugin payload.
 
 ## PRP Methodology
 

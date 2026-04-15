@@ -1,302 +1,198 @@
-# PRP (Product Requirement Prompts)
+# PRP Framework for Claude Code
 
-A collection of prompts for AI-assisted development with Claude Code.
+This repository is a Claude Code plugin marketplace for PRP workflow automation. It contains the published `prp-core` plugin, a repo-local `.claude/` mirror used during development, and a small set of project-only extras that are not shipped in the plugin package.
 
----
+## Current repository state
 
-### Transform Your Team with AI Engineering Workshops
+| Path | Purpose | Current state |
+| --- | --- | --- |
+| `.claude-plugin/marketplace.json` | Marketplace manifest | Publishes `prp-core` from `./plugins/prp-core` as `prp-marketplace` |
+| `plugins/prp-core/` | Installable Claude Code plugin | v3.0.0 with **15 skills**, **10 agents**, and **2 Stop hooks** |
+| `.claude/skills/` | Repo-local mirror | **17 skills**: the plugin's 15 plus `prp-core-runner` and `update-review-instructions` |
+| `.claude/agents/` | Repo-local mirror | **11 agents**: the plugin's 10 plus `gpui-researcher` |
+| `.claude/hooks/` | Repo-local manual hook setup | Ralph hook only; the Research Team stop hook exists only inside the plugin package |
 
-**What you'll get:**
+## What the `prp-core` plugin ships
 
-- Put your team on a path to become AI power users
-- Learn the exact PRP methodology used by top engineering teams
-- Hands-on training with Claude Code, PRPs, and real codebases
-- From beginner to advanced AI engineering workshops for teams and individuals
+### Skills
 
-**Perfect for:** Engineering teams, Product teams, and developers who want AI that actually works in production
+**Planning and execution**
 
----
+- `prp-prd`
+- `prp-plan`
+- `prp-implement`
+- `prp-ralph`
+- `prp-ralph-cancel`
+- `prp-ralph-loop`
 
-## What is PRP?
+**Issues and debugging**
 
-**Product Requirement Prompt (PRP)** = PRD + curated codebase intelligence + agent/runbook
+- `prp-issue-investigate`
+- `prp-issue-fix`
+- `prp-debug`
 
-The minimum viable packet an AI needs to ship production-ready code on the first pass.
+**Research and review**
 
-A PRP supplies an AI coding agent with everything it needs to deliver a vertical slice of working software—no more, no less.
+- `prp-codebase-question`
+- `prp-research-team`
+- `prp-review`
+- `prp-review-agents`
 
-### How PRP Differs from Traditional PRD
+**Git workflow**
 
-A traditional PRD clarifies _what_ the product must do and _why_ customers need it, but deliberately avoids _how_ it will be built.
+- `prp-commit`
+- `prp-pr`
 
-A PRP keeps the goal and justification sections of a PRD yet adds AI-critical layers:
+### Agents
 
-- **Context**: Precise file paths, library versions, code snippet examples
-- **Patterns**: Existing codebase conventions to follow
-- **Validation**: Executable commands the AI can run to verify its work
+- `code-reviewer`
+- `code-simplifier`
+- `codebase-analyst`
+- `codebase-explorer`
+- `comment-analyzer`
+- `docs-impact-agent`
+- `pr-test-analyzer`
+- `silent-failure-hunter`
+- `type-design-analyzer`
+- `web-researcher`
 
----
+### Hooks
 
-## Quick Start
+When you install the plugin, Claude Code loads these Stop hooks from `plugins/prp-core/hooks/hooks.json` automatically:
 
-### Option 1: Copy Commands to Your Project
+- `prp-ralph-stop.sh`
+- `prp-research-team-stop.sh`
+
+`prp-ralph-stop.sh` keeps active Ralph loops running until they complete or hit the iteration limit. `prp-research-team-stop.sh` validates the generated research plan through `.claude/prp-research-team.state` and blocks exit until the required sections are present.
+
+Manual hook configuration is only needed when you copy the repo-local `.claude/` assets instead of installing the plugin.
+
+## Installation
+
+### Option 1: Install from the GitHub marketplace repo
 
 ```bash
-# From your project root
-cp -r /path/to/PRPs-agentic-eng/.claude/commands/prp-core .claude/commands/
+/plugin marketplace add rodrigorjsf/prp-agentic-engineering
+/plugin install prp-core@prp-marketplace
 ```
 
-### Option 2: Clone Repository
+This is the normal install path.
 
-```bash
-git clone https://github.com/Wirasm/PRPs-agentic-eng.git
-cd PRPs-agentic-eng
-```
+### Option 2: Install through the Claude Code plugin API
 
----
-
-## Commands
-
-The `.claude/commands/prp-core/` directory contains the core PRP workflow commands:
-
-### Core Workflow
-
-| Command          | Description                                              |
-| ---------------- | -------------------------------------------------------- |
-| `/prp-prd`       | Interactive PRD generator with implementation phases     |
-| `/prp-plan`      | Create implementation plan (from PRD or free-form input) |
-| `/prp-implement` | Execute a plan with validation loops                     |
-
-### Issue & Debug Workflow
-
-| Command                  | Description                                      |
-| ------------------------ | ------------------------------------------------ |
-| `/prp-issue-investigate` | Analyze GitHub issue, create implementation plan |
-| `/prp-issue-fix`         | Execute fix from investigation artifact          |
-| `/prp-debug`             | Deep root cause analysis with 5 Whys methodology |
-
-### Git & Review
-
-| Command       | Description                                       |
-| ------------- | ------------------------------------------------- |
-| `/prp-commit` | Smart commit with natural language file targeting |
-| `/prp-pr`     | Create PR with template support                   |
-| `/prp-review` | Comprehensive PR code review                      |
-
-### Autonomous Loop
-
-| Command             | Description                                      |
-| ------------------- | ------------------------------------------------ |
-| `/prp-ralph`        | Start autonomous loop until all validations pass |
-| `/prp-ralph-cancel` | Cancel active Ralph loop                         |
-
----
-
-## Ralph Loop (Autonomous Execution)
-
-Based on [Geoffrey Huntley's Ralph Wiggum technique](https://ghuntley.com/ralph/) - a self-referential loop that keeps iterating until the job is actually done.
-
-### How It Works
-
-```
-/prp-ralph .claude/PRPs/plans/my-feature.plan.md --max-iterations 20
-```
-
-1. Claude implements the plan tasks
-2. Runs all validation commands (type-check, lint, tests, build)
-3. If any validation fails → fixes and re-validates
-4. Loop continues until ALL validations pass
-5. Outputs `<promise>COMPLETE</promise>` and exits
-
-Each iteration, Claude sees its previous work in files and git history. It's not starting fresh - it's debugging itself.
-
-### Setup
-
-The stop hook must be configured in `.claude/settings.local.json`:
+Add the marketplace and plugin to either your project-level `.claude/settings.json` or your global `~/.claude/settings.json`:
 
 ```json
 {
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/prp-ralph-stop.sh"
-          }
-        ]
-      }
-    ]
-  }
+  "extraKnownMarketplaces": {
+    "prp-marketplace": {
+      "source": "rodrigorjsf/prp-agentic-engineering"
+    }
+  },
+  "enabledPlugins": [
+    "prp-core@prp-marketplace"
+  ]
 }
 ```
 
-### Usage
+Use this path for team bootstrap, managed installs, or reproducible local setup.
+
+### Option 3: Install from a local checkout of this repo
 
 ```bash
-# Create a plan
-/prp-plan "add user authentication with JWT"
+git clone https://github.com/rodrigorjsf/prp-agentic-engineering.git
+cd prp-agentic-engineering
 
-# Let Ralph loose
-/prp-ralph .claude/PRPs/plans/add-user-auth.plan.md --max-iterations 20
-
-# Cancel if needed
-/prp-ralph-cancel
+/plugin marketplace add /absolute/path/to/prp-agentic-engineering
+/plugin install prp-core@prp-marketplace
 ```
 
-### Tips
+Downloading or cloning the repository by itself does **not** install the plugin. You still need to install it through a marketplace entry or through the Claude Code plugin settings API.
 
-- Always use `--max-iterations` (default: 20) to prevent infinite loops
-- Works best with plans that have clear, testable validation commands
-- State is tracked in `.claude/prp-ralph.state.md`
-- Progress and learnings are captured in the implementation report
+### Repo-local mirror, not plugin install
 
----
+If you want the root `.claude/` mirror, including the repo-only extras, you must copy or sync those files into your own project manually. That path is meant for development and customization, not as the primary installation method.
 
-## Workflow Overview
+## How to use it
 
-### Large Features: PRD → Plan → Implement
+In Claude Code, use the skill names directly in your request.
 
-```
-/prp-prd "user authentication system"
-    ↓
-Creates PRD with Implementation Phases table
-    ↓
-/prp-plan .claude/PRPs/prds/user-auth.prd.md
-    ↓
-Auto-selects next pending phase, creates plan
-    ↓
-/prp-implement .claude/PRPs/plans/user-auth-phase-1.plan.md
-    ↓
-Executes plan, updates PRD progress, archives plan
-    ↓
-Repeat /prp-plan for next phase
+### Large features
+
+```text
+Run the prp-prd skill for "user authentication system"
+Run the prp-plan skill with .claude/PRPs/prds/user-auth.prd.md
+Run the prp-implement skill with .claude/PRPs/plans/user-auth-phase-1.plan.md
 ```
 
-### Medium Features: Direct to Plan
+### Autonomous execution
 
-```
-/prp-plan "add pagination to the API"
-    ↓
-Creates implementation plan from description
-    ↓
-/prp-implement .claude/PRPs/plans/add-pagination.plan.md
+```text
+Run the prp-ralph skill with .claude/PRPs/plans/my-feature.plan.md --max-iterations 20
 ```
 
-### Bug Fixes: Issue Workflow
+### Bug workflow
 
-```
-/prp-issue-investigate 123
-    ↓
-Analyzes issue, creates investigation artifact
-    ↓
-/prp-issue-fix 123
-    ↓
-Implements fix, creates PR
+```text
+Run the prp-issue-investigate skill for issue 123
+Run the prp-issue-fix skill for issue 123
 ```
 
----
+### Review workflow
 
-## Artifacts Structure
-
-All artifacts are stored in `.claude/PRPs/`:
-
+```text
+Run the prp-review skill for PR 123
+Run the prp-review-agents skill for PR 123 with all aspects
 ```
+
+## Artifacts created by the workflow
+
+The skills write their working artifacts to `.claude/PRPs/` inside the target project:
+
+```text
 .claude/PRPs/
-├── prds/              # Product requirement documents
-├── plans/             # Implementation plans
-│   └── completed/     # Archived completed plans
-├── reports/           # Implementation reports
-├── issues/            # Issue investigation artifacts
-│   └── completed/     # Archived completed investigations
-└── reviews/           # PR review reports
+├── prds/
+├── plans/
+│   └── completed/
+├── reports/
+├── issues/
+│   └── completed/
+└── reviews/
 ```
 
----
+## Repository layout
 
-## PRD Phases
-
-PRDs include an Implementation Phases table for tracking progress:
-
-```markdown
-| #   | Phase | Description | Status      | Parallel | Depends | PRP Plan |
-| --- | ----- | ----------- | ----------- | -------- | ------- | -------- |
-| 1   | Auth  | User login  | complete    | -        | -       | [link]   |
-| 2   | API   | Endpoints   | in-progress | -        | 1       | [link]   |
-| 3   | UI    | Frontend    | pending     | with 4   | 2       | -        |
-| 4   | Tests | Test suite  | pending     | with 3   | 2       | -        |
+```text
+.
+├── .claude-plugin/marketplace.json   # Marketplace manifest for this repo
+├── .claude/                          # Repo-local mirror and project-only extras
+│   ├── agents/
+│   ├── hooks/
+│   └── skills/
+├── plugins/
+│   └── prp-core/
+│       ├── .claude-plugin/plugin.json
+│       ├── agents/
+│       ├── hooks/
+│       └── skills/
+├── README.md
+└── README-for-DUMMIES.md
 ```
 
-- **Status**: `pending` → `in-progress` → `complete`
-- **Parallel**: Phases that can run concurrently (in separate worktrees)
-- **Depends**: Phases that must complete first
+## Repo-local extras that are not in the plugin
 
----
+These assets exist in the root `.claude/` mirror but are not installed by `prp-core`:
 
-## PRP Best Practices
+- `.claude/skills/prp-core-runner/`
+- `.claude/skills/update-review-instructions/`
+- `.claude/agents/gpui-researcher.md`
 
-1. **Context is King**: Include ALL necessary documentation, examples, and caveats
-2. **Validation Loops**: Provide executable tests/lints the AI can run and fix
-3. **Information Dense**: Use keywords and patterns from the codebase
-4. **Bounded Scope**: Each plan should be completable by an AI in one loop
+## Requirements
 
----
-
-## Project Structure
-
-```
-your-project/
-├── .claude/
-│   ├── commands/prp-core/   # PRP commands
-│   ├── PRPs/                # Generated artifacts
-│   └── agents/              # Custom subagents
-├── PRPs/
-│   ├── templates/           # PRP templates
-│   └── ai_docs/             # Library documentation
-├── CLAUDE.md                # Project-specific guidelines
-└── src/                     # Your source code
-```
-
----
-
-## Parallel Development with Worktrees
-
-When PRD phases can run in parallel:
-
-```bash
-# Phase 3 and 4 can run concurrently
-git worktree add -b phase-3-ui ../project-phase-3
-git worktree add -b phase-4-tests ../project-phase-4
-
-# Run Claude in each
-cd ../project-phase-3 && claude
-cd ../project-phase-4 && claude
-```
-
----
-
-## Resources
-
-### Templates (PRPs/templates/)
-
-- `prp_base.md` - Comprehensive PRP template
-- `prp_story_task.md` - Story/task template
-- `prp_planning.md` - Planning template
-
-### AI Documentation (PRPs/ai_docs/)
-
-Curated documentation for Claude Code context injection.
-
-### Legacy Commands
-
-Previous command versions are preserved in `old-prp-commands/` for reference.
-
----
+- Claude Code with plugin support
+- Git
+- GitHub CLI (`gh`) if you want the PR-oriented skills to open pull requests
 
 ## License
 
-MIT License
-
----
-
-**The goal is one-pass implementation success through comprehensive context.**
+MIT
