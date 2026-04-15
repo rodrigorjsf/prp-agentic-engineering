@@ -10,7 +10,7 @@ applyTo: ".claude-plugin/**/*.json,plugins/*/.claude-plugin/**/*.json,**/CLAUDE.
 ## Manifest alignment
 - Check that `.claude-plugin/marketplace.json` still publishes `prp-core` from `./plugins/prp-core`.
 - Check that `plugins/*/.claude-plugin/plugin.json` keeps the package identity aligned with the shipped plugin.
-- Flag install or troubleshooting examples that use the wrong plugin identifier; this repo installs as `prp-core@prp-marketplace`.
+- Flag install or troubleshooting examples that use the wrong plugin identifier; this repo installs as `prp-core@prp-engineering-marketplace`.
 
 ## CLAUDE hierarchy
 - Keep root `CLAUDE.md` minimal: project description, non-standard tooling, and high-signal pointers only.

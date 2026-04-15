@@ -22,7 +22,7 @@ The methodology: **PRP = PRD + curated codebase intelligence + agent runbook**. 
 
 ```bash
 /plugin marketplace add rodrigorjsf/prp-agentic-engineering
-/plugin install prp-core@prp-marketplace
+/plugin install prp-core@prp-engineering-marketplace
 ```
 
 ### Option 2: Declare in `settings.json` for team or reproducible installs
@@ -32,12 +32,12 @@ Add to your project-level `.claude/settings.json` or global `~/.claude/settings.
 ```json
 {
   "extraKnownMarketplaces": {
-    "prp-marketplace": {
+    "prp-engineering-marketplace": {
       "source": "rodrigorjsf/prp-agentic-engineering"
     }
   },
   "enabledPlugins": [
-    "prp-core@prp-marketplace"
+    "prp-core@prp-engineering-marketplace"
   ]
 }
 ```
@@ -49,7 +49,7 @@ This path works for team bootstrap and managed installs, because the plugin acti
 ```bash
 git clone https://github.com/rodrigorjsf/prp-agentic-engineering.git
 /plugin marketplace add /absolute/path/to/prp-agentic-engineering
-/plugin install prp-core@prp-marketplace
+/plugin install prp-core@prp-engineering-marketplace
 ```
 
 Cloning the repository alone does **not** install the plugin. You must register the marketplace entry and run the install command.

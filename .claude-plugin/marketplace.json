@@ -1,5 +1,5 @@
 {
-  "name": "prp-marketplace",
+  "name": "prp-engineering-marketplace",
   "description": "PRP (Product Requirement Prompt) workflow automation tools and methodology",
   "owner": {
     "name": "Rodrigo França",
@@ -9,7 +9,7 @@
     {
       "name": "prp-core",
       "source": "./plugins/prp-core",
-      "description": "Complete PRP workflow automation - create, execute, commit, and PR commands with orchestration scripts"
+      "description": "Complete PRP workflow automation tools and methodology - create, execute, commit, and PR commands with orchestration scripts"
     }
   ]
 }

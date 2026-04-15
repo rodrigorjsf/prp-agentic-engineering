@@ -79,7 +79,7 @@ If you need those extras, use the repo-local mirror intentionally. Do not assume
 
 ```bash
 /plugin marketplace add rodrigorjsf/prp-agentic-engineering
-/plugin install prp-core@prp-marketplace
+/plugin install prp-core@prp-engineering-marketplace
 ```
 
 ### Option 2: Install through the Claude Code plugin API
@@ -89,12 +89,12 @@ Add this to project-level `.claude/settings.json` or global `~/.claude/settings.
 ```json
 {
   "extraKnownMarketplaces": {
-    "prp-marketplace": {
+    "prp-engineering-marketplace": {
       "source": "rodrigorjsf/prp-agentic-engineering"
     }
   },
   "enabledPlugins": [
-    "prp-core@prp-marketplace"
+    "prp-core@prp-engineering-marketplace"
   ]
 }
 ```
@@ -108,7 +108,7 @@ git clone https://github.com/rodrigorjsf/prp-agentic-engineering.git
 cd prp-agentic-engineering
 
 /plugin marketplace add /absolute/path/to/prp-agentic-engineering
-/plugin install prp-core@prp-marketplace
+/plugin install prp-core@prp-engineering-marketplace
 ```
 
 Cloning the repository alone does not activate the plugin.
@@ -170,8 +170,8 @@ Run the prp-review-agents skill for PR 123 with all aspects
 ### Plugin not loading
 
 ```bash
-/plugin uninstall prp-core@prp-marketplace
-/plugin install prp-core@prp-marketplace
+/plugin uninstall prp-core@prp-engineering-marketplace
+/plugin install prp-core@prp-engineering-marketplace
 ```
 
 ### Skills not found

@@ -18,7 +18,7 @@
 
 - Skills are the primary interface. In docs and config, prefer skill wording such as `run the prp-plan skill`; do not reintroduce legacy `/prp-*` command framing unless you are editing historical examples on purpose.
 - Keep the packaged plugin and the repo-local mirror distinct. Root-only extras must not be documented as shipped plugin payload.
-- Keep manifest and install naming aligned across docs and config: the marketplace publishes `prp-core` from `./plugins/prp-core`, and install examples should use `prp-core@prp-marketplace`.
+- Keep manifest and install naming aligned across docs and config: the marketplace publishes `prp-core` from `./plugins/prp-core`, and install examples should use `prp-core@prp-engineering-marketplace`.
 - Keep `CLAUDE.md` minimal. Project-wide essentials belong there; file-pattern-specific rules belong in `.claude/rules/*.md`.
 - Keep `.claude/rules/` narrowly scoped and one-topic-per-file. For example, SKILL.md conventions should target `**/skills/*/SKILL.md`, and hook-script conventions should target shell hooks rather than README or JSON files.
 - When editing `.github/instructions/*.instructions.md`, include YAML frontmatter with `applyTo`, keep each file under 4,000 characters, and write concrete review checks rather than generic quality guidance.

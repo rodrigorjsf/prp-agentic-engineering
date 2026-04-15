@@ -16,7 +16,7 @@ Open Claude Code and run:
 
 ```bash
 /plugin marketplace add rodrigorjsf/prp-agentic-engineering
-/plugin install prp-core@prp-marketplace
+/plugin install prp-core@prp-engineering-marketplace
 ```
 
 That's it. The skills activate immediately.
