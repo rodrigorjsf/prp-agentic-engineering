@@ -5,65 +5,47 @@ description: Orchestrate complete PRP workflow from feature request to pull requ
 
 # PRP Core Workflow Runner
 
-## Instructions
+Run the 5 PRP skills in sequence. Stop on first failure.
 
-When the user requests to implement a feature using the PRP workflow or wants end-to-end automation from idea to PR, use the SlashCommand tool to invoke `/prp-core-run-all` with the user's feature description as the argument.
+## Pipeline
 
-**Step-by-step execution:**
+### Step 1: Create Branch
+Run the `prp-commit` skill to create a conventional branch name from the feature description.
+- Branch format: `feat/short-description` or `fix/short-description`
+- Must be on a clean working tree
 
-1. **Invoke the workflow**: Use SlashCommand tool with `/prp-core-run-all {feature-description}`
-2. **Monitor progress**: The workflow will execute 5 steps in sequence:
-   - Create a conventional git branch
-   - Generate comprehensive PRP document
-   - Execute the PRP implementation
-   - Create atomic git commit
-   - Create pull request
-3. **Handle failures**: If any step fails:
-   - Report which step failed and why
-   - Do NOT proceed to subsequent steps
-   - Provide actionable guidance for fixing the issue
-4. **Report completion**: When all steps succeed, confirm the workflow completed and provide the PR URL
+### Step 2: Create Plan
+Run the `prp-plan` skill with the feature description.
+- Produces `.plan.md` in the PRPs directory
+- Includes codebase exploration, gap analysis, and implementation steps
 
-**Error Handling:**
+### Step 3: Execute Implementation
+Run the `prp-implement` skill pointing to the plan from Step 2.
+- Implements each task from the plan
+- Runs validation after every change
+- Fixes failures immediately before moving on
 
-- Stop execution immediately if any validation fails
-- Report the specific error clearly
-- Guide the user on how to resolve the issue
+### Step 4: Commit Changes
+Run the `prp-commit` skill to create an atomic commit.
+- Stages files by logical context
+- Writes conventional commit message (type/scope/description)
+
+### Step 5: Create PR
+Run the `prp-pr` skill to push and open a pull request.
+- Auto-detects base branch
+- Uses repository PR template if available
+- Writes summary from committed changes
+
+## Error Handling
+
+- **Stop immediately** if any step fails — do NOT proceed to the next step
+- Report which step failed, the error, and actionable guidance
 - Do not attempt to auto-fix complex validation failures
-
-## Examples
-
-**Example 1: Autonomous invocation**
-```
-User: "Can you implement user authentication using JWT with the PRP workflow?"
-Assistant: I'll use the prp-core-runner skill to execute the complete PRP workflow for implementing JWT authentication.
-[Invokes: /prp-core-run-all Implement user authentication using JWT]
-```
-
-**Example 2: Feature request**
-```
-User: "I need to add a search API with Elasticsearch integration using PRP"
-Assistant: I'll run the full PRP workflow to implement the search API with Elasticsearch.
-[Invokes: /prp-core-run-all Add search API with Elasticsearch integration]
-```
-
-**Example 3: Refactoring with PRP**
-```
-User: "Use the PRP methodology to refactor the database layer for better performance"
-Assistant: I'll execute the PRP workflow for refactoring the database layer.
-[Invokes: /prp-core-run-all Refactor database layer for better performance]
-```
 
 ## When to Use
 
-Use this skill when:
-- User explicitly requests to "implement a feature using PRP"
-- User asks to "run the full PRP workflow"
+- User requests "implement a feature using PRP" or "run the full PRP workflow"
 - User wants end-to-end automation from feature idea to pull request
 - User mentions both "PRP" and a feature to implement
-- User requests a complete workflow including branch, implementation, and PR
 
-Do NOT use this skill when:
-- User only wants to run a single PRP command (e.g., just create a PRP)
-- User is asking about PRP methodology (provide information instead)
-- User wants to implement something without mentioning PRP workflow
+Do NOT use when the user only wants a single step (plan, implement, commit, or PR individually).

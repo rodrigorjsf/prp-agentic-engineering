@@ -56,7 +56,8 @@ fi
 # Missing sections - block exit with feedback
 MISSING_LIST=""
 for section in "${MISSING[@]}"; do
-  MISSING_LIST="${MISSING_LIST}\n- ${section}"
+  MISSING_LIST="${MISSING_LIST}
+- ${section}"
 done
 
 FEEDBACK="Research plan is incomplete. Missing required sections:
