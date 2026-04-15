@@ -6,37 +6,47 @@ Complete PRP (Product Requirement Prompt) workflow automation for Claude Code.
 
 This plugin provides a comprehensive workflow for creating, executing, and shipping features using the PRP methodology - where **PRP = PRD + curated codebase intelligence + agent/runbook** designed to enable AI agents to ship production-ready code on the first pass.
 
-## Commands
+## Skills
 
 ### Core Workflow
 
-| Command | Description |
-|---------|-------------|
-| `/prp-prd` | Interactive PRD generator with implementation phases |
-| `/prp-plan` | Create implementation plan (from PRD or free-form input) |
-| `/prp-implement` | Execute a plan with validation loops |
+| Skill | Description |
+|-------|-------------|
+| `prp-core-runner` | Orchestrate full workflow: plan → implement → commit → PR |
+| `prp-plan` | Create implementation plan from PRD or free-form input |
+| `prp-implement` | Execute a `.plan.md` with validation after every change |
+| `prp-prd` | Interactive PRD generator with implementation phases |
 
 ### Issue Workflow
 
-| Command | Description |
-|---------|-------------|
-| `/prp-issue-investigate` | Analyze GitHub issue, create implementation plan |
-| `/prp-issue-fix` | Execute fix from investigation artifact |
+| Skill | Description |
+|-------|-------------|
+| `prp-issue-investigate` | Analyze GitHub issue, create implementation plan |
+| `prp-issue-fix` | Execute fix from investigation artifact |
 
-### Research
+### Research & Analysis
 
-| Command | Description |
-|---------|-------------|
-| `/prp-research-team` | Design dynamic research team and plan using agent teams |
+| Skill | Description |
+|-------|-------------|
+| `prp-research-team` | Multi-agent parallel research for complex topics |
+| `prp-codebase-question` | Answer codebase questions with file:line references |
+| `prp-debug` | Root cause analysis using 5 Whys technique |
 
 ### Git & Review
 
-| Command | Description |
-|---------|-------------|
-| `/prp-commit` | Smart commit with natural language file targeting |
-| `/prp-pr` | Create PR with template support |
-| `/prp-review` | Comprehensive PR code review |
-| `/prp-review-agents` | Multi-agent PR review (comments, tests, errors, types, code, docs, simplify) |
+| Skill | Description |
+|-------|-------------|
+| `prp-commit` | Smart commit with natural language file targeting |
+| `prp-pr` | Create PR with template support |
+| `prp-review` | Comprehensive PR code review |
+| `prp-review-agents` | Multi-agent PR review (comments, tests, errors, types, code, docs) |
+
+### Autonomous Loops
+
+| Skill | Description |
+|-------|-------------|
+| `prp-ralph` | Start autonomous iteration loop with validation gates |
+| `prp-ralph-cancel` | Cancel active Ralph loop |
 
 ## Agents
 
@@ -64,11 +74,14 @@ Specialized agents for code analysis and review workflows.
 
 ### Using Agents
 
-Agents are invoked automatically by `/prp-review-agents` or manually via Task tool:
+Agents are invoked automatically by the `prp-review-agents` skill or manually via Task tool:
 
 ```
-/prp-review-agents 123              # Full review of PR #123
-/prp-review-agents 123 tests errors # Specific aspects only
+# Run the prp-review-agents skill for PR #123
+"run prp-review-agents for PR 123"
+
+# Specific aspects only
+"run prp-review-agents for PR 123 - focus on tests and errors"
 ```
 
 ## Workflow
@@ -76,35 +89,35 @@ Agents are invoked automatically by `/prp-review-agents` or manually via Task to
 ### Large Features: PRD → Plan → Implement
 
 ```
-/prp-prd "user authentication system"
+Run the prp-prd skill for "user authentication system"
     ↓
 Creates PRD with Implementation Phases table
     ↓
-/prp-plan .claude/PRPs/prds/user-auth.prd.md
+Run the prp-plan skill with .claude/PRPs/prds/user-auth.prd.md
     ↓
 Auto-selects next pending phase, creates plan
     ↓
-/prp-implement .claude/PRPs/plans/user-auth-phase-1.plan.md
+Run the prp-implement skill with .claude/PRPs/plans/user-auth-phase-1.plan.md
     ↓
 Executes plan, updates PRD progress, archives plan
     ↓
-Repeat /prp-plan for next phase
+Repeat prp-plan for next phase
 ```
 
 ### Medium Features: Direct to Plan
 
 ```
-/prp-plan "add pagination to the API"
+Run the prp-plan skill for "add pagination to the API"
     ↓
-/prp-implement .claude/PRPs/plans/add-pagination.plan.md
+Run the prp-implement skill with .claude/PRPs/plans/add-pagination.plan.md
 ```
 
 ### Bug Fixes: Issue Workflow
 
 ```
-/prp-issue-investigate 123
+Run the prp-issue-investigate skill for issue #123
     ↓
-/prp-issue-fix 123
+Run the prp-issue-fix skill for issue #123
 ```
 
 ## Installation
@@ -220,13 +233,9 @@ A PRP is a comprehensive implementation document containing:
 # Restart Claude Code
 ```
 
-### Commands Not Found
+### Skills Not Found
 
-Ensure Claude Code restarted after installation:
-
-```bash
-/help
-```
+Ensure Claude Code restarted after installation. Skills are loaded from the plugin's `skills/` directory.
 
 ## License
 

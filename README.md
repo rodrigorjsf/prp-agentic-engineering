@@ -2,25 +2,9 @@
 
 A collection of prompts for AI-assisted development with Claude Code.
 
-## Video Walkthrough
-
-https://www.youtube.com/watch?v=KVOZ9s1S9Gk&lc=UgzfwxvFjo6pKEyPo1R4AaABAg
-
-### Support This Work
-
-**Found value in these resources?**
-
-**Buy me a coffee:** https://coff.ee/wirasm
-
-I spent a considerable amount of time creating these resources and prompts. If you find value in this project, please consider buying me a coffee to support my work.
-
 ---
 
 ### Transform Your Team with AI Engineering Workshops
-
-**Ready to move beyond toy demos to production-ready AI systems?**
-
-**Book a workshop:** https://www.rasmuswiding.com/
 
 **What you'll get:**
 
@@ -30,8 +14,6 @@ I spent a considerable amount of time creating these resources and prompts. If y
 - From beginner to advanced AI engineering workshops for teams and individuals
 
 **Perfect for:** Engineering teams, Product teams, and developers who want AI that actually works in production
-
-Contact me directly at hello@rasmuswiding.com
 
 ---
 
@@ -314,14 +296,6 @@ Previous command versions are preserved in `old-prp-commands/` for reference.
 ## License
 
 MIT License
-
----
-
-## Support
-
-I spent a considerable amount of time creating these resources and prompts. If you find value in this project, please consider buying me a coffee to support my work.
-
-**Buy me a coffee:** https://coff.ee/wirasm
 
 ---
 
