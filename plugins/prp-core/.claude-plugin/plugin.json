@@ -1,9 +1,9 @@
 {
   "name": "prp-core",
   "version": "3.0.0",
-  "description": "Complete PRP workflow automation - plan, implement, debug, review, commit, and PR skills with specialized agents",
+  "description": "Complete PRP workflow automation tools and methodology - plan, implement, debug, review, commit, and PR skills with specialized agents",
   "author": {
-    "name": "Wirasm",
-    "email": "hello@rasmuswiding.com"
+    "name": "Rodrigo França",
+    "email": "rodrigo_rjsf@hotmail.com"
   }
 }
