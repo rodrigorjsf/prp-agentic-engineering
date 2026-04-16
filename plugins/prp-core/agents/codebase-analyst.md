@@ -2,7 +2,7 @@
 name: codebase-analyst
 description: Use proactively to understand HOW code works. Analyzes implementation details, traces data flow, and documents technical workings with precise file:line references. The more specific your request, the better the analysis.
 model: sonnet
-color: cyan
+color: green
 tools: [Read, Grep, Glob, Bash]
 maxTurns: 15
 ---
