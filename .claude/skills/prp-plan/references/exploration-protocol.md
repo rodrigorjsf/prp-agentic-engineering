@@ -8,6 +8,12 @@ Launch codebase agents in parallel first, then research agent after results are 
 
 ## Phase 2: Codebase Intelligence
 
+**Before launching agents:** Discover actual project structure. Do NOT assume `src/` or any conventional directory exists.
+```bash
+ls -la && ls -la */ 2>/dev/null | head -50
+```
+Use discovered structure to inform agent prompts below.
+
 Launch two specialized agents in parallel using multiple Task tool calls in a single message.
 
 ### Agent 1: prp-core:codebase-explorer
@@ -122,7 +128,11 @@ OUTPUT FORMAT — return findings in this exact structure:
 **VERSION CONSTRAINTS:**
 - [library]: v{version} — [compatibility note]
 
+**CONFLICTS WITH CODEBASE:**
+- [doc recommendation]: [how codebase does it differently] — [which to follow]
+
 Keep total output under 50 lines. Direct links to specific doc sections, not homepages.
+Flag any conflicts between documentation recommendations and existing codebase patterns from Phase 2.
 ```
 
 ---

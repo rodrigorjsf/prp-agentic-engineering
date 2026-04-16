@@ -188,7 +188,10 @@ INSTRUCTIONS:
 1. Fill every template section using the user answers and research briefs
 2. Mark sections lacking evidence as "Assumption - needs validation through [method]"
 3. Ensure the Key Hypothesis is testable with a measurable outcome
-4. Write the complete file to the output path
+4. Ensure user definitions are concrete and specific — never use generic placeholders like "users" or "stakeholders" when the user provided specific roles
+5. Ensure scope is clearly bounded with explicit must-haves and out-of-scope items
+6. List all open questions and uncertainties — never hide unknowns
+7. Write the complete file to the output path
 ```
 
 Wait for writer subagent to complete. Verify the PRD file was created.
