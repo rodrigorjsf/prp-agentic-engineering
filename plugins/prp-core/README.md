@@ -7,7 +7,7 @@
 | Artifact | Count | Notes |
 | --- | --- | --- |
 | Skills | 15 | The installable workflow surface in `skills/` |
-| Agents | 10 | Specialized review and analysis agents in `agents/` |
+| Agents | 11 | Specialized review and analysis agents in `agents/` |
 | Stop hooks | 2 | Registered from `hooks/hooks.json` |
 
 ## Skills
@@ -47,6 +47,7 @@
 - `codebase-explorer`
 - `comment-analyzer`
 - `docs-impact-agent`
+- `plan-critic`
 - `pr-test-analyzer`
 - `silent-failure-hunter`
 - `type-design-analyzer`
