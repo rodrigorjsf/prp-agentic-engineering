@@ -33,6 +33,7 @@
 - `prp-research-team`
 - `prp-review`
 - `prp-review-agents`
+- `prp-verification-before-completion`
 
 ### Git workflow
 

@@ -1,6 +1,6 @@
 {
   "name": "prp-core",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Complete PRP workflow automation tools and methodology - plan, implement, debug, review, commit, and PR skills with specialized agents",
   "author": {
     "name": "Rodrigo França",

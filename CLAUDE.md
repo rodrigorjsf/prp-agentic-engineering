@@ -1,9 +1,5 @@
 # PRP Framework — AI-powered workflow automation plugin for Claude Code.
 
-## Tooling
-
-- Package manager: `uv`
-
 ## Skills
 
 Skills are the primary interface. Invoke by name (e.g., "run the prp-plan skill").
