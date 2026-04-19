@@ -1,6 +1,7 @@
 ---
 name: prp-pr
 description: "Create a pull request from current branch with unpushed commits. Auto-detects base branch, validates git state, uses repository PR templates, writes a summary of changes, and pushes if needed. Optionally specify --base <branch>."
+argument-hint: --base <branch>
 ---
 
 # Create Pull Request
@@ -36,7 +37,7 @@ gh pr list --head $(git branch --show-current) --json number,url
 
 ## Phase 2: DISCOVER
 
-1. **PR template**: Check `.github/PULL_REQUEST_TEMPLATE.md`, `.github/pull_request_template.md`, `.github/PULL_REQUEST_TEMPLATE/`, `docs/pull_request_template.md`
+1. **PR template**: ${CLAUDE_SKILL_DIR}/references/pull-request-template.md
 2. **Commits**: `git log origin/{base-branch}..HEAD --pretty=format:"- %s"`
 3. **Changed files**: `git diff --stat origin/{base-branch}..HEAD`
 4. **Title**: Single commit → use message. Multiple → summarize as `{type}: {description}`
