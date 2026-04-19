@@ -6,8 +6,9 @@
 
 | Artifact | Count | Notes |
 | --- | --- | --- |
-| Skills | 15 | The installable workflow surface in `skills/` |
-| Agents | 11 | Specialized review and analysis agents in `agents/` |
+| Skills | 17 | The installable workflow surface in `skills/` |
+| Agents | 12 | Specialized review and analysis agents in `agents/` |
+| Rules | 1 | Path-scoped execution rules in `rules/` |
 | Stop hooks | 2 | Registered from `hooks/hooks.json` |
 
 ## Skills
@@ -35,6 +36,10 @@
 - `prp-review-agents`
 - `prp-verification-before-completion`
 
+### Advisor and validation
+
+- `prp-advisor`
+
 ### Git workflow
 
 - `prp-commit`
@@ -50,9 +55,16 @@
 - `docs-impact-agent`
 - `plan-critic`
 - `pr-test-analyzer`
+- `prp-advisor`
 - `silent-failure-hunter`
 - `type-design-analyzer`
 - `web-researcher`
+
+## Rules
+
+The plugin ships one path-scoped execution rule in `rules/`:
+
+- **`prp-workflow`** — enforces the full PRP lifecycle for `*.prd.md` and `*.plan.md` files: advisor-first gate, GitHub issue creation and tracking, verification before each phase completion, atomic commits, and PR sequencing after plan archival.
 
 ## Hooks
 

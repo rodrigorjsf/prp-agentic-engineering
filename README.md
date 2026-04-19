@@ -250,6 +250,34 @@ Run the prp-review-agents skill for PR 123 with tests errors
 
 ---
 
+### Advisor
+
+#### `prp-advisor` — Pre-work advisor gate
+
+Checks whether the native `advisor` tool is available and routes to it; falls back to the `prp-core:prp-advisor` subagent when the native tool is not configured. Either way, it delivers a concise, enumerated review of your current approach before substantive work begins.
+
+**Use when**: before writing any spec, plan, or code — before committing to an interpretation, and before declaring a task complete. The prp-workflow rule enforces this gate automatically for PRD and plan artifacts.
+
+```text
+Run the prp-advisor skill
+```
+
+---
+
+### Validation
+
+#### `prp-verification-before-completion` — Completion gate
+
+Verifies that all validation criteria from the plan pass before the plan is archived. Called automatically by `prp-implement` as Phase 4.6, immediately after all technical checks and before any report is written or the plan is moved to `completed/`.
+
+**Use when**: before declaring any implementation phase done. If this gate fails, fix the failures before proceeding.
+
+```text
+Run the prp-verification-before-completion skill
+```
+
+---
+
 ### Git workflow
 
 #### `prp-commit` — Atomic commit builder
@@ -290,7 +318,9 @@ Agents are specialized subprocesses invoked by skills during research, review, a
 | `codebase-explorer` | Locates files, extracts code patterns, and shows concrete examples in one pass | When exploring a new area of the codebase |
 | `comment-analyzer` | Verifies comments match actual code behavior; flags outdated or misleading comments | Before PRs that change documented code |
 | `docs-impact-agent` | Identifies stale docs and missing entries for new features; advisory only | After adding user-facing features |
+| `plan-critic` | Reviews PRP artifacts for completeness, coherence, and blind spots before implementation | Before executing a plan |
 | `pr-test-analyzer` | Evaluates behavioral test coverage quality; rates gaps by criticality (1–10) | After creating a PR |
+| `prp-advisor` | Delivers a concise enumerated review of your approach; backed by a stronger reviewer model | Before substantive work and before declaring done |
 | `silent-failure-hunter` | Hunts swallowed errors, inadequate error handling, and inappropriate fallbacks | After implementing error handling |
 | `type-design-analyzer` | Rates type design on encapsulation, invariant expression, and enforcement quality | When introducing or refactoring types |
 | `web-researcher` | Searches the web for current docs, APIs, and best practices; returns cited findings | When your knowledge cutoff matters |
@@ -378,15 +408,17 @@ Artifacts are plain markdown files. They accumulate over time, forming a project
 .
 ├── .claude-plugin/marketplace.json   # Marketplace manifest
 ├── .claude/                          # Repo-local mirror + project-only extras
-│   ├── agents/                       # 11 agents (10 plugin + gpui-researcher)
+│   ├── agents/                       # 14 agents (12 plugin + gpui-researcher + rubber-duck)
 │   ├── hooks/                        # Manual Ralph hook setup
-│   └── skills/                       # 17 skills (15 plugin + prp-core-runner, update-review-instructions)
+│   ├── rules/                        # Path-scoped execution rules (e.g. prp-workflow)
+│   └── skills/                       # 19 skills (17 plugin + prp-core-runner, update-review-instructions)
 ├── plugins/
-│   └── prp-core/                     # Installable plugin package (v3.0.0)
+│   └── prp-core/                     # Installable plugin package (v3.1.2)
 │       ├── .claude-plugin/plugin.json
-│       ├── agents/                   # 10 agents
+│       ├── agents/                   # 12 agents
 │       ├── hooks/                    # 2 Stop hooks
-│       └── skills/                   # 15 skills
+│       ├── rules/                    # 1 path-scoped rule (prp-workflow)
+│       └── skills/                   # 17 skills
 ├── README.md
 └── README-for-DUMMIES.md
 ```
@@ -398,6 +430,7 @@ Artifacts are plain markdown files. They accumulate over time, forming a project
 | `.claude/skills/prp-core-runner/` | Orchestrates the full plan → implement → commit → PR pipeline in one command |
 | `.claude/skills/update-review-instructions/` | Generates scoped Copilot review instruction files for `.github/instructions/` |
 | `.claude/agents/gpui-researcher.md` | Researches GPUI APIs and validates usage patterns against real-world examples |
+| `.claude/agents/rubber-duck.md` | General-purpose critical thinking agent for challenging assumptions and unblocking |
 
 To use these extras, copy or symlink the root `.claude/` directory into your project.
 

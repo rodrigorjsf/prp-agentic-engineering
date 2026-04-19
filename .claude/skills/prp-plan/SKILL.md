@@ -244,4 +244,6 @@ Load the console output template:
 ${CLAUDE_SKILL_DIR}/references/output-template.md
 ```
 
+Update repository plan issue description with a summary of the plan and next steps.
+
 Report plan creation to user using the template format.

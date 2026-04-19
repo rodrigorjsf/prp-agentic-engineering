@@ -8,6 +8,8 @@ Skills are the primary interface. Invoke by name (e.g., "run the prp-plan skill"
 |----------|--------|
 | Full pipeline | `prp-core-runner` (orchestrates: plan → implement → commit → PR) |
 | Plan & Build | `prp-plan`, `prp-implement`, `prp-commit`, `prp-pr` |
+| Advisor | `prp-advisor` |
+| Validation | `prp-verification-before-completion` |
 | Research | `prp-codebase-question`, `prp-debug`, `prp-prd`, `prp-research-team` |
 | Issues | `prp-issue-investigate`, `prp-issue-fix` |
 | Review | `prp-review`, `prp-review-agents` |
