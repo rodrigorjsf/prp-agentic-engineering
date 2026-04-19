@@ -182,8 +182,6 @@ Validate completeness, coherence, and identify blind spots.
 
 Process feedback: incorporate valid findings into the relevant briefs, briefly justify any disagreements.
 
-Make sure to execute `prp-verification-before-completion` skill for every claim you make in the briefs and critic feedback. No evidence = no claim.
-
 ---
 
 ## Phase 6: GENERATE — Implementation Plan File
@@ -245,5 +243,7 @@ Load the console output template:
 ```
 ${CLAUDE_SKILL_DIR}/references/output-template.md
 ```
+
+Update repository plan issue description with a summary of the plan and next steps.
 
 Report plan creation to user using the template format.
