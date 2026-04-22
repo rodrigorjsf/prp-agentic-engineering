@@ -1,0 +1,1 @@
+Run the prp-implement skill with .claude/PRPs/plans/add-pagination.plan.md. Compact noisy findings into a bounded brief before handing off to the next phase.

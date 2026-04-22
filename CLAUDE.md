@@ -1,30 +1,27 @@
 # PRP Framework — AI-powered workflow automation plugin for Claude Code.
 
-## Skills
+- **graphify**: `/graphify` → invoke `skill: "graphify"` before anything else.
 
-Skills are the primary interface. Invoke by name (e.g., "run the prp-plan skill").
+## Priorities (highest first)
 
-| Workflow | Skills |
-|----------|--------|
-| Full pipeline | `prp-core-runner` (orchestrates: plan → implement → commit → PR) |
-| Plan & Build | `prp-plan`, `prp-implement`, `prp-commit`, `prp-pr` |
-| Advisor | `prp-advisor` |
-| Validation | `prp-verification-before-completion` |
-| Research | `prp-codebase-question`, `prp-debug`, `prp-prd`, `prp-research-team` |
-| Issues | `prp-issue-investigate`, `prp-issue-fix` |
-| Review | `prp-review`, `prp-review-agents` |
-| Autonomous | `prp-ralph` (start loop), `prp-ralph-cancel` (stop loop) |
+1. **Smart Zone** [CRITICAL] — Keep context window < 40% capacity. Compact before reaching limit; delegate heavy work to subagents with fresh windows.
+2. **Harness-First** [HIGH] — Deterministic rails (tests, hooks, linters) over corrective prompting. Prove completion via verification, not self-reported confidence.
+3. **Subagent Isolation** [HIGH] — Research and analysis in isolated contexts; return only condensed summaries (~1,000 tokens) to the parent agent.
+4. **Artifact-First** [MEDIUM] — PRPs, plans, and review artifacts are first-class outputs. Each phase writes a durable artifact before the next phase starts.
+5. **Progressive Disclosure** [MEDIUM] — Load context in tiers. Authoritative policy: `plugins/prp-core/references/`.
 
 ## Context
 
 - `plugins/prp-core/` is the packaged plugin distribution.
-- Root `.claude/` mirrors plugin artifacts for local development and also contains project-only extras such as `prp-core-runner`, `update-review-instructions`, and `gpui-researcher`.
+- Root `.claude/` mirrors plugin artifacts for local development; root-only extras: `prp-core-runner`, `update-review-instructions`, `gpui-researcher`, `rubber-duck`.
 - Use `plugins/prp-core/CLAUDE.md` when changing the shipped plugin payload.
 
 ## PRP Methodology
 
 **PRP = PRD + curated codebase intelligence + agent/runbook** — enables one-pass implementation.
 
-When creating PRPs, include: goal, business value, user-visible behavior, all needed context (docs, examples, gotchas), implementation blueprint with task list, and executable validation commands.
+Run the `prp-advisor` skill before writing any `*.prd.md` or `*.plan.md` file or committing to any interpretation.
 
-When executing PRPs: load and understand all context → create plan with todos → implement following blueprint → validate at each step → fix failures before proceeding.
+When creating PRPs: include goal, business value, user-visible behavior, all needed context, implementation blueprint with task list, and executable validation commands.
+
+When executing PRPs: load context → create plan with todos → implement → validate at each step → fix failures before proceeding.

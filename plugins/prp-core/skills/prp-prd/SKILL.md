@@ -17,6 +17,14 @@ INITIATE → FOUNDATION → GROUNDING → DEEP DIVE → FEASIBILITY → DECISION
 
 Each phase builds on previous answers. Grounding phases validate assumptions via agents.
 
+## Context Contract
+
+Before starting, read `plugins/prp-core/references/context-budget-policy.md` and `plugins/prp-core/references/execution-policy.md`.
+
+- Compact noisy findings into a **bounded brief** before handing off to the plan phase.
+- Parallelize only independent research scopes; keep sequential when scopes share state.
+- All PRP artifacts go under `.claude/PRPs/prds/` — see `artifact-lifecycle.md`.
+
 ## Phase 1: INITIATE
 
 **No input**: Ask "What do you want to build?"

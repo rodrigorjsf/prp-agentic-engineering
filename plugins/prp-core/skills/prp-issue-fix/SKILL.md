@@ -21,6 +21,18 @@ Execute the implementation plan from the `prp-issue-investigate` skill:
 
 ---
 
+## Context Contract
+
+Before starting, read `plugins/prp-core/references/context-budget-policy.md` and `plugins/prp-core/references/execution-policy.md`.
+
+- Compact noisy findings into a **bounded brief** before each handoff (discovery ≤ 50 lines, execution ≤ 30 lines, validation ≤ 20 lines).
+- Parallelize only independent scopes; keep sequential when scopes share files or state.
+- Isolate noisy exploration in subagents; return only the compact artifact to the main context.
+- For deterministic batch verification, use the repo-local evaluation harness.
+- All PRP artifacts go under `.claude/PRPs/` — see `artifact-lifecycle.md`.
+
+---
+
 ## Phase 0: DETECT — Base Branch
 
 Load the base branch detection protocol:

@@ -12,3 +12,14 @@ wheels/
 .env
 
 .ruff_cache
+
+graphify-out/cache/
+graphify-out/chunks/
+graphify-out/chunks_deep/
+graphify-out/memory/
+graphify-out/pdf_extracts/
+graphify-out/.graphify_chunk_*.txt
+humanlayer/
+autoresearch-ref/
+
+docs/
