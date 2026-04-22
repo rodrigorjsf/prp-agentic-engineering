@@ -7,6 +7,9 @@ paths:
 
 # Agent File Conventions
 
+> **Authoritative prompt structure**: `plugins/prp-core/references/agent-prompt-style.md`  
+> **Component class definitions**: `plugins/prp-core/references/harness-taxonomy.md`
+
 - YAML frontmatter requires: `name`, `description`, `model`, `color`
 - Model selection: `haiku` for structured/fast tasks (explorer, comment-analyzer, docs-impact), `sonnet` for reasoning-heavy tasks (analyst, reviewer, type-design)
 - Include `tools` and `maxTurns` in frontmatter: advisory agents get `maxTurns: 10`, exploration agents get `maxTurns: 15`

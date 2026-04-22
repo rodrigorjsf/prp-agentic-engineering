@@ -7,6 +7,8 @@ paths:
 
 # PRP Artifact Path Contracts
 
+> **Authoritative policy**: `plugins/prp-core/references/artifact-lifecycle.md` — this rule is a scoped quick-reference for skill authors.
+
 All PRP artifacts go under `.claude/PRPs/` with this structure:
 
 | Type | Path | Created by |
