@@ -1,36 +1,36 @@
-# Graph Report - ./docs  (2026-04-22)
+# Graph Report - /home/rodrigo/Workspace/prp-agentic-engineering  (2026-04-22)
 
 ## Corpus Check
-- 85 files · ~173,933 words
+- 1 files · ~358,130 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 329 nodes · 442 edges · 21 communities detected
-- Extraction: 82% EXTRACTED · 17% INFERRED · 1% AMBIGUOUS · INFERRED: 76 edges (avg confidence: 0.77)
+- 339 nodes · 455 edges · 21 communities detected
+- Extraction: 83% EXTRACTED · 17% INFERRED · 1% AMBIGUOUS · INFERRED: 76 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Skill Standards|Skill Standards]]
-- [[_COMMUNITY_MCP Tool Discovery|MCP Tool Discovery]]
-- [[_COMMUNITY_Claude Memory and Rules|Claude Memory and Rules]]
-- [[_COMMUNITY_Harness Smart Zone|Harness Smart Zone]]
-- [[_COMMUNITY_Long Context Failures|Long Context Failures]]
-- [[_COMMUNITY_Hooks and Subagents|Hooks and Subagents]]
-- [[_COMMUNITY_Context Rot Mechanics|Context Rot Mechanics]]
-- [[_COMMUNITY_Strict Tool Use|Strict Tool Use]]
-- [[_COMMUNITY_Agent Protocols|Agent Protocols]]
-- [[_COMMUNITY_Structured Prompting|Structured Prompting]]
-- [[_COMMUNITY_HumanLayer Runtime|HumanLayer Runtime]]
-- [[_COMMUNITY_Long Context Research|Long Context Research]]
-- [[_COMMUNITY_Claude Code Plugins|Claude Code Plugins]]
-- [[_COMMUNITY_Spec-Driven Practice|Spec-Driven Practice]]
-- [[_COMMUNITY_MCP Ecosystem|MCP Ecosystem]]
-- [[_COMMUNITY_AGENTS Context Files|AGENTS Context Files]]
-- [[_COMMUNITY_Spec-Driven Research|Spec-Driven Research]]
-- [[_COMMUNITY_Persuasion Patterns|Persuasion Patterns]]
-- [[_COMMUNITY_Human-Agent Collaboration|Human-Agent Collaboration]]
-- [[_COMMUNITY_CIMD and XAA|CIMD and XAA]]
-- [[_COMMUNITY_Roundtrip Overhead|Roundtrip Overhead]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 12|Community 12]]
+- [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 15|Community 15]]
+- [[_COMMUNITY_Community 16|Community 16]]
+- [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
+- [[_COMMUNITY_Community 20|Community 20]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Claude Code subagent definition best practices` - 12 edges
@@ -45,14 +45,14 @@
 10. `Lost in the Middle (ACL/TACL)` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Parahuman AI Behavior` --conceptually_related_to--> `Context Engineering`  [INFERRED]
-  docs/general-llm/Call_Me_A_Jerk_Persuading_AI_to_Comply_with_Objectionable_Requests.pdf → docs/context-engineering/context-engineering-most-important-skill-dev.md
-- `Structured Outputs` --semantically_similar_to--> `Spec-Driven Development`  [INFERRED] [semantically similar]
-  docs/structured-outputs/anthropic-structured-outputs.md → docs/spec-driven-development/spec-driven-development-main.md
-- `Two-Agent Architecture` --conceptually_related_to--> `Layered Multi-Agent Stack`  [INFERRED]
-  docs/general-llm/research-agent-workflows-and-patterns.md → docs/agent-protocols/ai-agent-protocols-2026-guide.md
-- `Anthropic Claude tool_search` --references--> `Strict Tool Use`  [EXTRACTED]
-  docs/tool-calling/README.md → docs/structured-outputs/anthropic-strict-tool-use.md
+- `Context Engineering` --conceptually_related_to--> `Parahuman AI Behavior`  [INFERRED]
+  docs/context-engineering/context-engineering-most-important-skill-dev.md → docs/general-llm/Call_Me_A_Jerk_Persuading_AI_to_Comply_with_Objectionable_Requests.pdf
+- `Context Engineering` --conceptually_related_to--> `Effective Context Engineering for AI Agents`  [INFERRED]
+  docs/general-llm/research-context-engineering-comprehensive.md → docs/general-llm/research-context-rot-and-management.md
+- `Spec-Driven Development` --semantically_similar_to--> `Structured Outputs`  [INFERRED] [semantically similar]
+  docs/spec-driven-development/spec-driven-development-main.md → docs/structured-outputs/anthropic-structured-outputs.md
+- `Strict Tool Use` --references--> `Anthropic Claude tool_search`  [EXTRACTED]
+  docs/structured-outputs/anthropic-strict-tool-use.md → docs/tool-calling/README.md
 - `Anthropic Claude Cookbook` --references--> `Model Context Protocol (MCP)`  [INFERRED]
   docs/agentic-engineering/claude-cookbook-anthropic.md → docs/mcp/mcp-vs-a2a-dzone.md
 
@@ -75,87 +75,87 @@
 
 ## Communities
 
-### Community 0 - "Skill Standards"
-Cohesion: 0.07
-Nodes (40): Best practices for skill creators, Gotchas Pattern, Validation Loop, Evaluating skill output quality, Eval-Driven Iteration, Optimizing skill descriptions, Skill Triggering via Description, Agent Skills Standard (+32 more)
-
-### Community 1 - "MCP Tool Discovery"
+### Community 0 - "Community 0"
 Cohesion: 0.08
 Nodes (40): Copilot MCP Surfaces, GitHub MCP Server, Push Protection, GitHub MCP Toolsets, code_execution Meta-Tool, MCP Bridge, Programmatic Tool Calling, Progressive Tool Discovery (+32 more)
 
-### Community 2 - "Claude Memory and Rules"
+### Community 1 - "Community 1"
 Cohesion: 0.08
 Nodes (38): Plugin skills directory, Auto memory, claudeMdExcludes, CLAUDE.md files, .claude/rules, Concise specific instructions, Context noise reduction, How Claude remembers your project (+30 more)
 
-### Community 3 - "Harness Smart Zone"
+### Community 2 - "Community 2"
 Cohesion: 0.07
 Nodes (34): Dumb Zone, Intentional Compaction, Research-Plan-Implement (RPI) Workflow, Critic Agent Pattern, Atelier, Harness Concept, Mitchell Hashimoto, Parahuman AI Behavior (+26 more)
 
-### Community 4 - "Long Context Failures"
+### Community 3 - "Community 3"
+Cohesion: 0.08
+Nodes (32): A2A Protocol, Agent Card, A2aprotocol — a Hugging Face Space by a2aprotocol, Agent Network Protocol (ANP), Advancing Agentic AI through Communication Protocols, Best practices for skill creators, Gotchas Pattern, Validation Loop (+24 more)
+
+### Community 4 - "Community 4"
+Cohesion: 0.11
+Nodes (24): Why Strict Tool Use Matters for Agents, Strict Tool PHI Schema Exclusion, Strict Tool Schema Complexity Limits, Strict Tool Use, tool_choice any, Validated Tool Inputs, Constrained Decoding, Grammar Compilation Cache (+16 more)
+
+### Community 5 - "Community 5"
 Cohesion: 0.12
 Nodes (20): Chain-of-Thought Prompting, Why Re-ranking Becomes Impractical, Document Summarization, Why Context Reduction Remains Fragile, In-Between Effect, Knowledge Graph Triple Extraction, Levy et al. 2024, Liu et al. 2024 (+12 more)
 
-### Community 5 - "Hooks and Subagents"
+### Community 6 - "Community 6"
+Cohesion: 0.15
+Nodes (18): AGENTS.md, A Complete Guide To AGENTS.md, Instruction Budget, Path-Scoped Rules, Stale Documentation Poisons Context, What are skills?, Progressive Skill Discovery, Skill Directory Structure (+10 more)
+
+### Community 7 - "Community 7"
 Cohesion: 0.2
 Nodes (18): Deterministic Hook Automation, Hook Type Selection, Hook Decision Control, Hook Lifecycle, Subagent and Team Hooks, Agent Teams, Subagents vs Agent Teams, Custom Subagents (+10 more)
 
-### Community 6 - "Context Rot Mechanics"
+### Community 8 - "Community 8"
 Cohesion: 0.14
 Nodes (14): Entropy in Legacy Codebases, 500 Instruction Ceiling, Attention Dilution, Attention Sinks, IFScale Benchmark, Prompt Repetition Hack, Context Selection, Context Structuring (+6 more)
 
-### Community 7 - "Strict Tool Use"
-Cohesion: 0.19
-Nodes (14): Why Strict Tool Use Matters for Agents, Strict Tool PHI Schema Exclusion, Strict Tool Schema Complexity Limits, Strict Tool Use, tool_choice any, Validated Tool Inputs, Constrained Decoding, Grammar Compilation Cache (+6 more)
+### Community 9 - "Community 9"
+Cohesion: 0.23
+Nodes (14): Agentic Context Engineering (ACE), Architectural Paradigms of Advanced Agentic Systems, The Prompt Report, Context Engineering, LLM Context Engineering: Comprehensive Research Synthesis, Smallest Set of High-Signal Tokens, LLM Multilingual Performance & Language Overhead, Tokenization Unfairness Between Languages (+6 more)
 
-### Community 8 - "Agent Protocols"
-Cohesion: 0.18
-Nodes (14): A2A Protocol, Agent Card, A2aprotocol — a Hugging Face Space by a2aprotocol, Agent Network Protocol (ANP), Advancing Agentic AI through Communication Protocols, Using scripts in skills, Self-Contained Skill Scripts, AI Agent Protocols 2026: The Complete Guide to Standardizing AI Communication (+6 more)
-
-### Community 9 - "Structured Prompting"
+### Community 10 - "Community 10"
 Cohesion: 0.18
 Nodes (14): Input Examples, Strict Tool Choice, Tool Definition Quality, Prompt Chaining, Prompt Consistency Techniques, Retrieval Grounding, Structured Outputs for Guarantees, Long Context Prompting (+6 more)
 
-### Community 10 - "HumanLayer Runtime"
+### Community 11 - "Community 11"
 Cohesion: 0.25
 Nodes (11): Approval Loop, claudecode-go, CodeLayer, Why hld Owns Orchestration, hld Daemon, hlyr CLI, HumanLayer Local Runtime, humanlayer-wui (+3 more)
 
-### Community 11 - "Long Context Research"
+### Community 12 - "Community 12"
 Cohesion: 0.25
 Nodes (11): Long Context Paper Collection, Knowledge Graph Extraction Fragility, Multi-Hop Follow-up Paper, Long-Context Evaluation Protocols, Lost in the Middle (ACL/TACL), Positional Bias, U-Shaped Performance Curve, Lost in the Middle (arXiv Preprint) (+3 more)
 
-### Community 12 - "Claude Code Plugins"
+### Community 13 - "Community 13"
 Cohesion: 0.27
 Nodes (11): Conflict prevention, Create plugins, --plugin-dir flag, Plugin manifest, Standalone-to-plugin migration, Plugin root structure, Plugin settings.json, /reload-plugins command (+3 more)
 
-### Community 13 - "Spec-Driven Practice"
-Cohesion: 0.27
-Nodes (10): Why Specs Reduce AI Guesswork, AWS Kiro, GitHub Spec Kit, Why SDD Breaks Down for Some Work, Spec-Anchored Adoption, Spec-as-Source Adoption, Spec-Driven Development, Spec-First Adoption (+2 more)
+### Community 14 - "Community 14"
+Cohesion: 0.29
+Nodes (9): evaluate_mirror_parity(), evaluate_must_contain(), load_cases(), main(), Deterministic prompt-contract evaluator for prp-core.  Checks shipped skills, ag, Check that each target file contains all required strings., Check that each (shipped, mirror) pair is identical., Run one case. Returns (pass_count, fail_count). (+1 more)
 
-### Community 14 - "MCP Ecosystem"
+### Community 15 - "Community 15"
 Cohesion: 0.22
 Nodes (10): Agent Cards, MCP Ecosystem Projects, Anthropic Claude Cookbook, AWS MCP Adoption, MCP Reference Servers, MRTR Stateless Transport, MCP Server Cards, MCP TypeScript SDK (+2 more)
 
-### Community 15 - "AGENTS Context Files"
-Cohesion: 0.27
-Nodes (10): AGENTS.md, A Complete Guide To AGENTS.md, Instruction Budget, Path-Scoped Rules, Stale Documentation Poisons Context, AGENTBENCH, Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?, Minimal Context Files (+2 more)
-
-### Community 16 - "Spec-Driven Research"
+### Community 16 - "Community 16"
 Cohesion: 0.38
 Nodes (10): Spec-Driven Development: From Code to Contract in the Age of AI Coding Assistants, Spec-Anchored, Spec-as-Source, Spec-First, Spec-Driven Development — Research Overview, Spec-Driven Development, Spec-Driven Development: Exploring Three SDD Tools, Kiro (+2 more)
 
-### Community 17 - "Persuasion Patterns"
+### Community 17 - "Community 17"
 Cohesion: 0.5
 Nodes (4): Call Me A Jerk, Commitment Principle, Persuasion Principles for Agent Skill Engineering, Parahuman Effect
 
-### Community 18 - "Human-Agent Collaboration"
+### Community 18 - "Community 18"
 Cohesion: 1.0
 Nodes (3): Towards Fluid Human-Agent Collaboration, Dynamic Mentalizing, Fluid Collaboration
 
-### Community 19 - "CIMD and XAA"
+### Community 19 - "Community 19"
 Cohesion: 1.0
 Nodes (2): CIMD, XAA
 
-### Community 20 - "Roundtrip Overhead"
+### Community 20 - "Community 20"
 Cohesion: 1.0
 Nodes (1): Multi Round-Trip Requests
 
@@ -168,11 +168,11 @@ Nodes (1): Multi Round-Trip Requests
   docs/shared/skill-authoring-best-practices.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **81 isolated node(s):** `AWS Kiro`, `Spec-Anchored Adoption`, `Why Specs Reduce AI Guesswork`, `Why SDD Breaks Down for Some Work`, `Why Structured Outputs Improve Reliability` (+76 more)
+- **85 isolated node(s):** `Deterministic prompt-contract evaluator for prp-core.  Checks shipped skills, ag`, `Check that each target file contains all required strings.`, `Check that each (shipped, mirror) pair is identical.`, `Run one case. Returns (pass_count, fail_count).`, `AWS Kiro` (+80 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `CIMD and XAA`** (2 nodes): `CIMD`, `XAA`
+- **Thin community `Community 19`** (2 nodes): `CIMD`, `XAA`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Roundtrip Overhead`** (1 nodes): `Multi Round-Trip Requests`
+- **Thin community `Community 20`** (1 nodes): `Multi Round-Trip Requests`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
@@ -184,11 +184,11 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **What is the exact relationship between `Evaluation-driven development` and `Confidence-based filtering`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `Context Engineering` connect `Harness Smart Zone` to `Context Rot Mechanics`?**
+- **Why does `Practical Agent Workflows and Patterns` connect `Community 3` to `Community 9`, `Community 6`?**
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+- **Why does `LLM Context Engineering: Comprehensive Research Synthesis` connect `Community 9` to `Community 3`, `Community 6`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **What connects `AWS Kiro`, `Spec-Anchored Adoption`, `Why Specs Reduce AI Guesswork` to the rest of the system?**
-  _81 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Skill Standards` be split into smaller, more focused modules?**
-  _Cohesion score 0.07 - nodes in this community are weakly interconnected._
-- **Should `MCP Tool Discovery` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+- **Why does `Context Engineering` connect `Community 2` to `Community 8`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **What connects `Deterministic prompt-contract evaluator for prp-core.  Checks shipped skills, ag`, `Check that each target file contains all required strings.`, `Check that each (shipped, mirror) pair is identical.` to the rest of the system?**
+  _85 weakly-connected nodes found - possible documentation gaps or missing edges._
