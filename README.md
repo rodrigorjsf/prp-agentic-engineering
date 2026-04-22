@@ -2,6 +2,10 @@
 
 **PRP** (Product Requirements + Plans) is an AI-powered workflow automation plugin for Claude Code. It turns vague feature requests into production-ready code through structured planning, autonomous execution, and multi-agent review — with every decision documented in version-controlled artifacts.
 
+This repository is a fork of [Wirasm/PRPs-agentic-eng](https://github.com/Wirasm/PRPs-agentic-eng). Credit goes to [@Wirasm](https://github.com/Wirasm) and the original project for the core PRP foundation that this repository builds on and extends.
+
+If you want to understand the core idea behind PRP more deeply, read the [original repository README](https://github.com/Wirasm/PRPs-agentic-eng/blob/development/README.md). It explains the original concept and background in more detail.
+
 ## What problem PRP solves
 
 AI coding sessions often fail for a predictable reason: the model starts implementing before it understands the codebase, the requirements, or the constraints. The result is code that works in isolation but breaks existing patterns, misses edge cases, or requires a complete rewrite.
