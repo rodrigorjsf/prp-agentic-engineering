@@ -16,3 +16,5 @@ wheels/
 graphify-out/cache/
 humanlayer/
 autoresearch-ref/
+
+*.pdf
