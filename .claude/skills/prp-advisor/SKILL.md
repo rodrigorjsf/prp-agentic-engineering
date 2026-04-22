@@ -9,6 +9,8 @@ user-invocable: false
 
 ## Step 1: Detect Advisor Path
 
+> **Policy**: This is an advisory component per `plugins/prp-core/references/harness-taxonomy.md`. It reviews and challenges decisions but does not create primary workflow artifacts.
+
 Check whether the native `advisor` tool is available in your current tool set.
 
 - **`advisor` tool available** → proceed to [Native Advisor](#native-advisor)

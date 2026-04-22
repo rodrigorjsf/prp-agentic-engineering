@@ -1,11 +1,13 @@
 ---
-name: verification-before-completion
-description: Use when about to claim a plan or work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+name: prp-verification-before-completion
+description: Use when about to claim a plan or work is complete, fixed, or passing, before completion of any PRP task, committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 ---
 
 # Verification Before Completion
 
 ## Overview
+
+> **Policy**: This is a utility component per `plugins/prp-core/references/harness-taxonomy.md`. It does one narrow job: verify that work is complete before any completion claim.
 
 Claiming work is complete without verification is dishonesty, not efficiency.
 

@@ -3,6 +3,7 @@ paths:
   - "plugins/prp-core/skills/*/SKILL.md"
   - ".claude/skills/*/SKILL.md"
 ---
+<!-- Dev-only — not shipped in plugin -->
 <!-- Migrated from CLAUDE.md — skill-specific conventions extracted to on-demand rule -->
 
 # Skill File Conventions

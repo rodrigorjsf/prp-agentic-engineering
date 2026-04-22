@@ -3,6 +3,7 @@ paths:
   - "plugins/prp-core/hooks/*.sh"
   - ".claude/hooks/*.sh"
 ---
+<!-- Dev-only — not shipped in plugin -->
 <!-- Migrated from codebase analysis — hook protocol rules extracted to on-demand rule -->
 
 # Hook Script Conventions

@@ -6,13 +6,9 @@ paths:
 
 # PRP Workflow Execution
 
-## Before Creating PRP Artifacts
-
-- Run the `prp-advisor` skill before writing any `*.prd.md` or `*.plan.md` file and before committing to any interpretation or assumption.
-
 ## After `*.prd.md` Is Created
 
-- Create a GitHub issue using the skill's `references/issue-template.md`.
+- Create a GitHub issue using the `prp-prd` skill's `references/issue-template.md`.
 - Write the created issue URL into the `<repository_prd_issue_url>` field in the PRD file.
 
 ## After `*.prd.md` Is Updated
@@ -21,7 +17,7 @@ paths:
 
 ## After `*.plan.md` Is Created
 
-- Create a GitHub issue using the skill's `references/issue-template.md`.
+- Create a GitHub issue using the `prp-plan` skill's `references/issue-template.md`.
 - Write the parent PRD issue URL into `<repository_prd_issue_url>` in the plan file.
 - Write the created plan issue URL into `<repository_plan_issue_url>` in the plan file.
 
