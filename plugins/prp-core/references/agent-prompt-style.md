@@ -1,6 +1,6 @@
 # Agent Prompt Style
 
-PRP agents follow a structured prompt style that keeps each agent's job explicit, its boundaries clear, and its output predictable. This style is informed by high-signal agent-prompt patterns (notably HumanLayer's agent structure) adapted to the PRP harness context.
+PRP agents follow a structured prompt style that keeps each agent's job explicit, its boundaries clear, and its output predictable. The pattern is: one declared job, explicit DO NOT boundaries, a short strategy, and a fixed output shape.
 
 ## Required structure
 
