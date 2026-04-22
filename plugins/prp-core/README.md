@@ -173,6 +173,20 @@ Run the prp-review-agents skill for PR 123 with all aspects
 └── reviews/
 ```
 
+## Shared references
+
+The `references/` directory contains authoritative policy documents. Skills and agents link to these instead of duplicating policy inline:
+
+| File | Purpose |
+|------|---------|
+| `harness-taxonomy.md` | Component class definitions: artifact / advisory / utility |
+| `context-budget-policy.md` | Smart-zone thresholds, brief size limits, compaction rules |
+| `execution-policy.md` | Four delegation modes: inline / subagent / parallel / harness |
+| `artifact-lifecycle.md` | PRP artifact locations, naming conventions, archival rules |
+| `agent-prompt-style.md` | One-job CRITICAL declaration, DO NOT boundaries, output format |
+
+For architecture details and the prompt evaluation harness, see `docs/prp-core-harness-architecture.md` and `docs/prp-core-prompt-evals.md` in the repository root.
+
 ## Requirements
 
 - Claude Code with plugin support
