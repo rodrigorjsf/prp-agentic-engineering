@@ -1,0 +1,1 @@
+Run the prp-review skill for PR 42. Use isolated subagents for review aspects that are independent. Summarize findings into a bounded brief before posting.

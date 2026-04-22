@@ -1,5 +1,8 @@
 # Copilot Instructions
 
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Use the `graphify` MCP tools or  Trigger: `/graphify`
+When the user types `/graphify`, invoke the Skill tool with `skill: "graphify"` before doing anything else.
+
 ## Build, test, and lint
 
 - Use `uv` for repo-level Python tasks.

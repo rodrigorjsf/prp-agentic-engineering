@@ -7,6 +7,8 @@ description: Use when about to claim a plan or work is complete, fixed, or passi
 
 ## Overview
 
+> **Policy**: This is a utility component per `plugins/prp-core/references/harness-taxonomy.md`. It does one narrow job: verify that work is complete before any completion claim.
+
 Claiming work is complete without verification is dishonesty, not efficiency.
 
 **Core principle:** Evidence before claims, always.

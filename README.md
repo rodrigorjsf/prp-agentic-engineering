@@ -414,15 +414,24 @@ Artifacts are plain markdown files. They accumulate over time, forming a project
 ├── .claude/                          # Repo-local mirror + project-only extras
 │   ├── agents/                       # 14 agents (12 plugin + gpui-researcher + rubber-duck)
 │   ├── hooks/                        # Manual Ralph hook setup
+│   ├── references/                   # Mirror of plugin references/ (policy docs)
 │   ├── rules/                        # Path-scoped execution rules (e.g. prp-workflow)
 │   └── skills/                       # 19 skills (17 plugin + prp-core-runner, update-review-instructions)
+├── docs/
+│   ├── prp-core-harness-architecture.md  # Component taxonomy, budget policy, agent structure
+│   └── prp-core-prompt-evals.md          # Eval harness usage and test case guide
 ├── plugins/
 │   └── prp-core/                     # Installable plugin package (v3.1.2)
 │       ├── .claude-plugin/plugin.json
 │       ├── agents/                   # 12 agents
 │       ├── hooks/                    # 2 Stop hooks
+│       ├── references/               # Shared policy documents (context-budget, execution-policy, etc.)
 │       ├── rules/                    # 1 path-scoped rule (prp-workflow)
 │       └── skills/                   # 17 skills
+├── scripts/
+│   └── prp_core_prompt_eval.py       # Repo-only deterministic contract checker
+├── tests/
+│   └── prp-core/                     # Prompt eval cases and fixtures
 ├── README.md
 └── README-for-DUMMIES.md
 ```

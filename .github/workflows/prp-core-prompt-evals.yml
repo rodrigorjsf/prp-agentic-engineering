@@ -1,0 +1,36 @@
+name: prp-core-prompt-evals
+
+on:
+  pull_request:
+    paths:
+      - "plugins/prp-core/**"
+      - ".claude/**"
+      - "scripts/prp_core_prompt_eval.py"
+      - "tests/prp-core/**"
+
+jobs:
+  prompt-evals:
+    name: Prompt contract checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: List cases
+        run: uv run python scripts/prp_core_prompt_eval.py --list
+
+      - name: Run mirror-parity check
+        run: uv run python scripts/prp_core_prompt_eval.py --case mirror-parity
+
+      - name: Run hook schema check
+        run: uv run python scripts/prp_core_prompt_eval.py --case research-team-hook-schema
+
+      - name: Run all contract checks
+        run: uv run python scripts/prp_core_prompt_eval.py --all

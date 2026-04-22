@@ -1,0 +1,64 @@
+[
+  {
+    "id": "plan",
+    "description": "prp-plan skill must include context-budget and artifact compaction language",
+    "input_file": "tests/prp-core/fixtures/plan-request.txt",
+    "must_contain": ["bounded brief", "context-budget-policy", "artifact"],
+    "targets": ["plugins/prp-core/skills/prp-plan/SKILL.md"]
+  },
+  {
+    "id": "implement",
+    "description": "prp-implement skill must include bounded brief size limits and compaction checkpoint language",
+    "input_file": "tests/prp-core/fixtures/implement-request.txt",
+    "must_contain": ["bounded brief", "context-budget-policy", "execution-policy"],
+    "targets": ["plugins/prp-core/skills/prp-implement/SKILL.md"]
+  },
+  {
+    "id": "review",
+    "description": "prp-review skill must include bounded brief and delegation language",
+    "input_file": "tests/prp-core/fixtures/review-request.txt",
+    "must_contain": ["bounded brief", "context-budget-policy"],
+    "targets": ["plugins/prp-core/skills/prp-review/SKILL.md"]
+  },
+  {
+    "id": "issue-fix",
+    "description": "prp-issue-fix skill must include execution-policy and bounded brief language",
+    "input_file": "tests/prp-core/fixtures/issue-fix-request.txt",
+    "must_contain": ["bounded brief", "execution-policy"],
+    "targets": ["plugins/prp-core/skills/prp-issue-fix/SKILL.md"]
+  },
+  {
+    "id": "mirror-parity",
+    "description": "Shipped plugin skills must match their .claude/ mirror copies",
+    "mirror_pairs": [
+      ["plugins/prp-core/skills/prp-plan/SKILL.md", ".claude/skills/prp-plan/SKILL.md"],
+      ["plugins/prp-core/skills/prp-implement/SKILL.md", ".claude/skills/prp-implement/SKILL.md"],
+      ["plugins/prp-core/skills/prp-review/SKILL.md", ".claude/skills/prp-review/SKILL.md"],
+      ["plugins/prp-core/skills/prp-issue-fix/SKILL.md", ".claude/skills/prp-issue-fix/SKILL.md"],
+      ["plugins/prp-core/skills/prp-issue-investigate/SKILL.md", ".claude/skills/prp-issue-investigate/SKILL.md"],
+      ["plugins/prp-core/skills/prp-codebase-question/SKILL.md", ".claude/skills/prp-codebase-question/SKILL.md"],
+      ["plugins/prp-core/skills/prp-research-team/SKILL.md", ".claude/skills/prp-research-team/SKILL.md"],
+      ["plugins/prp-core/skills/prp-advisor/SKILL.md", ".claude/skills/prp-advisor/SKILL.md"],
+      ["plugins/prp-core/skills/prp-commit/SKILL.md", ".claude/skills/prp-commit/SKILL.md"],
+      ["plugins/prp-core/skills/prp-verification-before-completion/SKILL.md", ".claude/skills/prp-verification-before-completion/SKILL.md"],
+      ["plugins/prp-core/references/harness-taxonomy.md", ".claude/references/harness-taxonomy.md"],
+      ["plugins/prp-core/references/context-budget-policy.md", ".claude/references/context-budget-policy.md"],
+      ["plugins/prp-core/references/execution-policy.md", ".claude/references/execution-policy.md"],
+      ["plugins/prp-core/references/artifact-lifecycle.md", ".claude/references/artifact-lifecycle.md"],
+      ["plugins/prp-core/references/agent-prompt-style.md", ".claude/references/agent-prompt-style.md"]
+    ]
+  },
+  {
+    "id": "research-team-hook-schema",
+    "description": "prp-research-team-stop.sh hook must validate all six required research plan sections",
+    "must_contain": [
+      "## Research Question",
+      "## Research Question Decomposition",
+      "## Team Composition",
+      "## Research Tasks",
+      "## Team Orchestration Guide",
+      "## Acceptance Criteria"
+    ],
+    "targets": ["plugins/prp-core/hooks/prp-research-team-stop.sh"]
+  }
+]
