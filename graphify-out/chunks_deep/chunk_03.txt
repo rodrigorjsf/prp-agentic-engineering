@@ -1,4 +1,0 @@
-docs/claude-code/memory/how-claude-remembers-a-project.md
-docs/claude-code/plugins/claude-create-plugin-doc.md
-docs/general-llm/subagents/research-subagent-best-practices.md
-docs/shared/skill-authoring-best-practices.md
