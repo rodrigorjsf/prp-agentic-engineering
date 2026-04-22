@@ -12,3 +12,7 @@ wheels/
 .env
 
 .ruff_cache
+
+graphify-out/cache/
+humanlayer/
+autoresearch-ref/
