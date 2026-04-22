@@ -1,5 +1,8 @@
 # PRP Framework — AI-powered workflow automation plugin for Claude Code.
 
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
+When the user types `/graphify`, invoke the Skill tool with `skill: "graphify"` before doing anything else.
+
 ## Skills
 
 Skills are the primary interface. Invoke by name (e.g., "run the prp-plan skill").
