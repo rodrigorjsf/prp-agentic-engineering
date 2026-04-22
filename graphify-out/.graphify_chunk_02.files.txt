@@ -1,0 +1,6 @@
+docs/structured-outputs/anthropic-structured-outputs.md
+docs/structured-outputs/anthropic-strict-tool-use.md
+docs/human-layer-project/humanlayer-repository-analysis.md
+docs/long-context-research/lost-in-the-middle-and-in-between-arxiv.md
+docs/spec-driven-development/spec-driven-development-main.md
+docs/tool-calling/README.md
