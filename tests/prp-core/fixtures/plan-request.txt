@@ -1,0 +1,1 @@
+Run the prp-plan skill to create an implementation plan for adding paginated search to the API. The plan should use bounded brief summaries and respect the context-budget-policy.

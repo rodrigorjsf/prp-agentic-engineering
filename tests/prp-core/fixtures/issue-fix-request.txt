@@ -1,0 +1,1 @@
+Run the prp-issue-fix skill for issue 123. Follow the execution-policy: use isolated subagents for noisy work and stay inline for deterministic steps.
