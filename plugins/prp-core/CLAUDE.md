@@ -1,4 +1,4 @@
-# PRP Core Plugin — Claude Code plugin providing PRP workflow automation (v3.1.2).
+# PRP Core Plugin — Claude Code plugin providing PRP workflow automation.
 
 ## Scope
 

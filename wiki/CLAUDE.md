@@ -2,22 +2,11 @@
 
 A personal knowledge base maintained by Claude Code.
 Based on Andrej Karpathy's LLM Wiki pattern.
-Must be used when searching for curated knowledge or when `rag-knowledge-base` return missing/imcomplete information.
+Must be used when searching for curated knowledge or when `rag-knowledge-base` return missing/incomplete information.
 
 ## Purpose
 
-This wiki is a structured, interlinked knowledge base for getting structured and organized code base docs.
 Claude maintains the wiki. The human curates sources, asks questions, and guides the analysis.
-
-## Folder structure
-
-```text
-docs/                   -- source documents (immutable -- never modify these)
-wiki/                   -- root wiki folder
-wiki/knowledge          -- markdown pages maintained by Claude
-wiki/knowledge/index.md -- table of contents for the entire wiki
-wiki/knowledge/log.md   -- append-only record of all operations
-```
 
 ## Ingest workflow
 

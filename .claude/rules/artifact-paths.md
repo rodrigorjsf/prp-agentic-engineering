@@ -3,6 +3,7 @@ paths:
   - "plugins/prp-core/skills/*/SKILL.md"
   - ".claude/skills/*/SKILL.md"
 ---
+<!-- Dev-only — not shipped in plugin -->
 <!-- Migrated from codebase analysis — artifact path contracts extracted to on-demand rule -->
 
 # PRP Artifact Path Contracts

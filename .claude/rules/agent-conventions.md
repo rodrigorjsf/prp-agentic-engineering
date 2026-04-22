@@ -3,6 +3,7 @@ paths:
   - "plugins/prp-core/agents/*.md"
   - ".claude/agents/*.md"
 ---
+<!-- Dev-only — not shipped in plugin -->
 <!-- Migrated from plugin conventions — agent-specific rules extracted to on-demand rule -->
 
 # Agent File Conventions
