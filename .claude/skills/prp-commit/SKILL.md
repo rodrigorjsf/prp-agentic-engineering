@@ -7,6 +7,8 @@ description: "Atomic commits by logical scope following Conventional Commits 1.0
 
 ## Strict Rules
 
+> **Policy**: This is a utility component per `plugins/prp-core/references/harness-taxonomy.md`. It does one narrow job: create atomic commits. It must not contain research or planning logic.
+
 - NEVER use `git add .` or `git add -A` — stage files by explicit path only
 - NEVER add `Co-Authored-By` or any AI attribution footer
 - One commit per logical scope — never mix unrelated changes
