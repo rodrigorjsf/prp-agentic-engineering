@@ -1,7 +1,7 @@
 # Graph Report - /home/rodrigo/Workspace/prp-agentic-engineering  (2026-04-22)
 
 ## Corpus Check
-- 1 files · ~358,130 words
+- 1 files · ~358,074 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

@@ -2,7 +2,6 @@
 
 A personal knowledge base maintained by Claude Code.
 Based on Andrej Karpathy's LLM Wiki pattern.
-Must be used when searching for curated knowledge or when `rag-knowledge-base` return missing/incomplete information.
 
 ## Purpose
 
